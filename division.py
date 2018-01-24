@@ -7,9 +7,9 @@ var2=input("Introduzca un dividendo:")
 total=var1/var2
 
 
-if total%2 == 0:
+if var1%var2 == 0:
 	print "Entero"
 
-if total%2 != 0 :
+else:
 	print "No entero"
 

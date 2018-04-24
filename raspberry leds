@@ -1,0 +1,90 @@
+from sense_hat import SenseHat
+import time #modulo de tiempo
+import random
+sense = SenseHat()
+time.sleep(1)
+sense.flip_h()
+#configura el color a cada variable
+w = [150,150,150]
+b = [0,0,255]
+e = [0,0,0]
+
+o=[255,127,0]
+y=[255,255,0]
+g=[0,255,0]
+
+def ojos():
+  #disposicion de los pixeles en la matrix
+  image = [
+      e,e,e,e,e,e,e,e,
+      e,e,e,e,e,e,e,e,
+      w,w,w,e,e,w,w,w,
+      w,w,b,e,e,w,w,b,
+      w,w,w,e,e,w,w,w,
+      e,e,e,e,e,e,e,e,
+      e,e,e,e,e,e,e,e,
+      e,e,e,e,e,e,e,e
+  ]
+  if sense.temp >= 50:
+    exit()
+    clear()
+  else:
+  
+    sense.set_pixels(image) #La imagen
+    time.sleep(1) #pausa 1 segundo la ejecucion del siguiente parametro
+    sense.flip_h() #configura la pantalla rotando 180
+def smile():
+  image= [
+    e,e,e,e,e,e,e,e,
+    e,e,e,e,e,e,e,e,
+    e,e,b,e,b,e,e,e,
+    e,e,e,e,e,e,e,e,
+    e,e,e,w,e,e,e,e,
+    e,w,e,e,e,w,e,e,
+    e,e,w,w,w,e,e,e,
+    e,e,e,e,e,e,e,e,
+    ]
+    
+  if sense.temp >= 50:
+    exit()
+    clear()
+  else:
+    sense.set_pixels(image)
+
+
+
+def smal():
+  image= [
+    e,e,e,e,e,e,e,e,
+    e,e,e,e,e,e,e,e,
+    e,e,b,e,b,e,e,e,
+    e,e,e,e,e,e,e,e,
+    e,e,e,w,e,e,e,e,
+    e,e,w,w,w,e,e,e,
+    e,w,e,e,e,w,e,e,
+    e,e,e,e,e,e,e,e,
+    ]
+    
+  if sense.temp >= 50:
+    exit()
+    clear()
+  else:
+    sense.set_pixels(image)
+
+def texto():
+  sense.show_message("Mola mucho!", text_colour=o)
+
+
+while True:
+  time.sleep(1) 
+  ojos()
+  time.sleep(1) 
+  ojos()
+  time.sleep(1)  
+  smile()
+  time.sleep(1)  
+  smal()
+  time.sleep(1)  
+  texto()
+
+

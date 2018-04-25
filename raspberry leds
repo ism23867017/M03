@@ -1,10 +1,11 @@
 from sense_hat import SenseHat
-import time #modulo de tiempo
+import time 
 import random
 sense = SenseHat()
 time.sleep(1)
 sense.flip_h()
-#configura el color a cada variable
+salir=False
+
 w = [150,150,150]
 b = [0,0,255]
 e = [0,0,0]
@@ -25,14 +26,11 @@ def ojos():
       e,e,e,e,e,e,e,e,
       e,e,e,e,e,e,e,e
   ]
-  if sense.temp >= 50:
-    exit()
-    clear()
-  else:
-  
-    sense.set_pixels(image) #La imagen
-    time.sleep(1) #pausa 1 segundo la ejecucion del siguiente parametro
-    sense.flip_h() #configura la pantalla rotando 180
+
+  sense.set_pixels(image) #La imagen
+  time.sleep(1) #pausa 1 segundo la ejecucion del siguiente parametro
+  sense.flip_h() #configura la pantalla rotando 180
+
 def smile():
   image= [
     e,e,e,e,e,e,e,e,
@@ -44,15 +42,9 @@ def smile():
     e,e,w,w,w,e,e,e,
     e,e,e,e,e,e,e,e,
     ]
+  sense.set_pixels(image)
+
     
-  if sense.temp >= 50:
-    exit()
-    clear()
-  else:
-    sense.set_pixels(image)
-
-
-
 def smal():
   image= [
     e,e,e,e,e,e,e,e,
@@ -65,26 +57,39 @@ def smal():
     e,e,e,e,e,e,e,e,
     ]
     
-  if sense.temp >= 50:
-    exit()
-    clear()
-  else:
-    sense.set_pixels(image)
+  sense.set_pixels(image)
 
 def texto():
-  sense.show_message("Mola mucho!", text_colour=o)
+  
+  if sense.get_humidity() >=81 and sense.get_humidity() <=100 :
+   g=b
+   sense.show_message("mola !!", text_colour=g)
+  
+  elif sense.get_humidity() >=61 and sense.get_humidity() <=80 :
+   g=y
+   sense.show_message("mola !!", text_colour=g)
+  
+  else:
+    g=[0,255,0]
+    lista=["hola","adios","que random!"]
+    sense.show_message("mola !!", text_colour=g)
 
-
-while True:
-  time.sleep(1) 
-  ojos()
-  time.sleep(1) 
-  ojos()
-  time.sleep(1)  
-  smile()
-  time.sleep(1)  
-  smal()
-  time.sleep(1)  
-  texto()
-
+while salir == False:
+  
+  if sense.temp<=60 and sense.get_pressure()<=1200:
+    time.sleep(1) 
+    ojos()
+    time.sleep(1) 
+    ojos()
+    time.sleep(2)  
+    smile()
+    time.sleep(2)  
+    smal()
+    time.sleep(2)  
+    texto()
+  else:
+    salir = True
+    
+    
+    
 

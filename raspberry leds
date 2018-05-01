@@ -71,7 +71,6 @@ def texto():
   
   else:
     g=[0,255,0]
-    lista=["hola","adios","que random!"]
     sense.show_message("mola !!", text_colour=g)
 
 while salir == False:

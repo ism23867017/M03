@@ -1,7 +1,7 @@
 from sense_hat import SenseHat
 sense = SenseHat()
 def imagen():
-  r=[255,0,0]
+  r=[255,0,0]            #Que hace esto?
   b=[255,255,255]
   image= [
   b,b,b,b,b,b,b,b,
@@ -14,9 +14,9 @@ def imagen():
   b,b,b,b,b,b,b,b,
   ]
   
-  sense.set_pixels(image)
+  sense.set_pixels(image) #Que hace esto?
   
-  if sense.temp >= 70:
+  if sense.temp >= 70:    #Que hace esto?
     r=[255,255,0]
     b=[159,0,255]
     image=[

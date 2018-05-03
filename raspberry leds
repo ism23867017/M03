@@ -102,7 +102,7 @@ while salir == False:
     texto()
   elif sense.temp >=70 and sense.temp <=79:
     rojo=[255,0,0]
-    sense.show_message("sobrecalentado/overheated", text_colour=rojo)
+    sense.show_message("sobrecalentado", text_colour=rojo)
   
   elif sense.temp>80:
     rojo=[255,0,0]
